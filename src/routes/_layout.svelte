@@ -1,5 +1,14 @@
 <script>
+	import jquery from 'jquery';
+	import 'popper.js'
+
 	import Nav from '../components/Nav.svelte';
+
+	import { onMount } from 'svelte';
+
+  onMount(async () => {
+		await import ('../../node_modules/bootstrap/dist/js/bootstrap.min.js');
+	});
 
 	export let segment;
 </script>

@@ -1,8 +1,10 @@
 <script>
 	import jquery from 'jquery';
 	import 'popper.js'
-
+	
 	import Nav from '../components/Nav.svelte';
+	import SideBar from '../components/SideBar.svelte';
+	import Footer from '../components/Footer.svelte';
 
 	import { onMount } from 'svelte';
 
@@ -17,8 +19,15 @@
 	@import "./sass/global.scss";
 </style>
 
-<Nav {segment}/>
+<header>
+	<Nav/>
+</header>
+<SideBar/>
+<div class="main-section">
+	<main class="mb-3">
+		<slot></slot>
+	</main>
 
-<main>
-	<slot></slot>
-</main>
+	<Footer />
+
+</div>

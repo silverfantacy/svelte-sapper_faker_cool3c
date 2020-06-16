@@ -1,0 +1,133 @@
+.main-section {
+  padding: 50px 0 0 0;
+  min-height: 100vh;
+  @include media-breakpoint-up(md) {
+    padding: 50px 0 0 200px;
+  }
+}
+
+// 區域標題
+.section-title {
+  font-size: 1.3em;
+  line-height: 1.48em;
+  font-weight: 700;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 21px;
+    background: #333;
+    margin-right: 10px;
+    vertical-align: sub;
+  }
+
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.more {
+  color: #666;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+
+  a {
+    padding: 5px 10px;
+    border: 1px solid #666;
+  }
+}
+
+// footer
+footer {
+  font-size: .86em;
+
+  .address-style {
+    margin-bottom: 0;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .about {
+    background-color: transparent;
+
+    div {
+      display: inline-block;
+      line-height: 20px;
+
+      a {
+        color: #0af;
+      }
+
+      &:after {
+        content: "|";
+        margin: 0 4px 0 2px;
+      }
+
+      &:last-child {
+        &:after {
+          content: "";
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .sites {
+    text-align: center;
+
+    a {
+      width: 100px;
+      height: 42px;
+      display: inline-block;
+      background-image: url(/assets/img/sites.png);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      margin-right: 10px;
+      text-indent: -9999px;
+      transition: .5s;
+    }
+
+    .site-uccu {
+      width: 100px;
+      background-position: 0 -252px;
+
+      &:hover {
+        background-position: 0 -294px;
+      }
+    }
+
+    .site-course {
+      width: 60px;
+      background-position: 0 0;
+
+      &:hover {
+        background-position: 0 -42px;
+      }
+    }
+
+    .site-contentparty {
+      width: 160px;
+      background-position: 0 -84px;
+
+      &:hover {
+        background-position: 0 -126px;
+      }
+    }
+  }
+
+  .social {
+    color: #666;
+    //font-size: .86em;
+  }
+}
+

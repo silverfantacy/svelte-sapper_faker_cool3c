@@ -1,0 +1,75 @@
+.nav {
+  position: fixed;
+  top: 0;
+  padding: 10px 20px;
+  height: 50px;
+  z-index: 100;
+
+  &-search_bar {
+    width: 200px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    input {
+      display: block !important;
+      width: 136px !important;
+      border: none;
+      border-bottom: 1px solid #666;
+      border-radius: 0;
+      margin-left: 20px;
+
+      &:focus {
+        border-bottom: 1px solid #666;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-logo {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0088cc !important;
+    margin: 0;
+  }
+
+  &-user {
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+//  phone
+.navbar-toggler-siderbar {
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 5px;
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+.navbar-toggler-userinfo {
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 5px;
+
+  &:active, &:focus {
+    outline: none;
+  }
+}

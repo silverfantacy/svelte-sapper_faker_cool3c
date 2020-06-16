@@ -1,99 +1,104 @@
 <style lang="scss">
-	@import '../sass/theme';
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-		color: $main-color;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
+	
 </style>
 
 <svelte:head>
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-	<img alt='Success Kid' src='successkid.jpg'>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
-
-<div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div>
-<div class="alert alert-secondary" role="alert">
-  A simple secondary alert—check it out!
-</div>
-<div class="alert alert-success" role="alert">
-  A simple success alert—check it out!
-</div>
-<div class="alert alert-danger" role="alert">
-  A simple danger alert—check it out!
-</div>
-<div class="alert alert-warning" role="alert">
-  A simple warning alert—check it out!
-</div>
-<div class="alert alert-info" role="alert">
-  A simple info alert—check it out!
-</div>
-<div class="alert alert-light" role="alert">
-  A simple light alert—check it out!
-</div>
-<div class="alert alert-dark" role="alert">
-  A simple dark alert—check it out!
-</div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="container-fluid">
+    <!-- {{--		頭版區--}} -->
+    <div class="row">
+      <div class="col-12 promote_section">
+        <!-- @foreach ($promoteList as $item)
+          <div class="promote_item">
+            <div class="image">
+              <img src="{{ $item['banner'] }}" alt="">
+            </div>
+            <div class="promote_item-info">
+              <span class="promote_item-info_tag">{{ $item['tag'] }}</span>
+              <span class="promote_item-info_title text-white">{{ $item['title'] }}</span>
+              <span class="promote_item-info_author text-sponsor">
+								<i class="far fa-user-circle fa-fw"></i> {{ $item['author'] }}
+							</span>
+            </div>
+          </div>
+        @endforeach -->
       </div>
-      <div class="modal-body">
-        ...
+    </div>
+    <!-- {{--		訊息列表區域--}} -->
+    <div class="row">
+      <!-- {{--			最新消息--}} -->
+      <div class="col-12 col-md-8 main-container">
+        <h2 class="section-title">
+          <a href="">最新消息</a>
+        </h2>
+        <ul class="post-list">
+          <!-- @foreach($newsList as $item)
+            <li class="">
+              <a href="" class="row">
+                <div class="image col-12 col-md-4">
+                  <img src="{{$item['banner']}}" alt="">
+                </div>
+                <div class="block-info col-12 col-md-8 d-flex flex-wrap">
+                  <div class="block-info_tags">
+                    @foreach($item['tag'] as $tag)
+                      <span> {{ $tag }} </span>
+                    @endforeach
+                  </div>
+                  <h3 class="block-info_title d-block w-100"> {{$item['title']}} </h3>
+                  <p class="block-info_content">{{$item['teaser']}}</p>
+                  <div class="d-flex mt-auto w-100">
+                    <span class="block-info_author">
+                      <i class="far fa-user-circle fa-fw"></i> {{$item['author']}}
+                    </span> <span class="block-info_last ml-auto">
+                      <i class="far fa-clock fa-fw"></i> {{$item['last']}}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          @endforeach -->
+        </ul>
+        <div class="more">
+          <a href="">下十篇文章</a>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <!-- {{--			右側列表--}} -->
+      <div class="col-12 col-md-4 ">
+        <div class="side-container">
+          <div class="search_tags">
+            <h2 class="section-title">
+              <a href="">站內熱搜</a>
+            </h2>
+            <ul>
+              <!-- @foreach($searchList as $item)
+                <li>{{ $item['title'] }}</li>
+              @endforeach -->
+            </ul>
+          </div>
+          <div class="hot-list">
+            <h2 class="section-title">
+              <a href="">熱門文章</a>
+            </h2>
+            <ul>
+              <!-- @foreach($hotList as $item)
+                <li>
+                  <a href="" class="d-flex">
+                    <div>{{ $item['index'] }}</div>
+                    <span class="block-info d-flex flex-column justify-content-between">
+										<span class="block-info_column">
+											<span>{{ $item['column'] }}</span></span>
+										<span class="block-info_title">{{ $item['title'] }}</span>
+									</span> </a>
+                </li>
+              @endforeach -->
+            </ul>
+            <div class="more">
+              <a href="">下十篇文章</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>

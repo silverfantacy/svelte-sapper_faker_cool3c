@@ -1,0 +1,43 @@
+.nav-user_info {
+  img {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    border-radius: 100px;
+  }
+}
+
+.nav-user_info-block {
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: -200px;
+  background: #fff;
+  width: 200px;
+  font-size: 14px;
+  transition: .5s;
+  @include media-breakpoint-up(md) {
+    top: 45px;
+    right: -220px;
+  }
+
+  &.active {
+    right: 0px;
+    @include media-breakpoint-up(md) {
+      right: -20px;
+    }
+  }
+
+  .info-block_information {
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+  }
+
+  .dropdown-item {
+    padding: .25rem 1rem;
+  }
+}

@@ -24,22 +24,8 @@
   </div>
   <hr class="my-0" />
   <div
-    class="d-flex flex-column flex-md-row justify-content-between
+    class="d-flex flex-column flex-md-row justify-content-center
     align-items-center py-3">
-    <div class="sites">
-      <a href="https://uccu.cool3c.com/" class="site-uccu" target="_blank">
-        壞朋友
-      </a>
-      <a href="https://course.cool3c.com/" class="site-course" target="_blank">
-        慕課
-      </a>
-      <a
-        href="https://contentparty.org/go/"
-        class="site-contentparty"
-        target="_blank">
-        Content party
-      </a>
-    </div>
 
     <div class="social" style="font-size: 24px;">
       <a href="">

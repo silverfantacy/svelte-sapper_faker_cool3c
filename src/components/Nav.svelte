@@ -1,5 +1,11 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  import UserInfo from '../components/UserInfo.svelte'
   // export let segment;
+  export let name;
+  export let userinfoActive;
+
+  const dispatch = createEventDispatcher();  // 呼叫父層function用
 </script>
 
 <style>
@@ -26,7 +32,9 @@
     data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent"
     aria-expanded="false"
-    aria-label="Toggle navigation">
+    aria-label="Toggle navigation"
+    on:click={()=> dispatch('toggleNavbar')}
+    >
     <i class="fas fa-bars fa-fw" />
   </button>
 
@@ -38,150 +46,20 @@
       data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
-      aria-label="Toggle navigation">
+      aria-label="Toggle navigation"
+      on:click={()=> dispatch('toggleUserinfo')}
+      >
       <i class="fas fa-ellipsis-h fa-fw" />
     </button>
-		<div class="nav-user_info-block">
-      <div
-        class="info-block_information d-flex justify-content-center
-        align-items-center mb-2 d-md-none">
-        <span class="mr-2">Zero</span>
-        <img
-          src="https://driver.cool3c.com/modify/45b39b65-6bb4-4cea-a86d-a3cc97faebb1-w200.png"
-          alt="" />
-      </div>
-      <div class="container">
-        <div class="input-group input-group-sm flex-nowrap mb-2 d-md-none">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="addon-wrapping">
-              <i class="fas fa-search" />
-            </span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="搜尋"
-            aria-label="搜尋"
-            aria-describedby="addon-wrapping" />
-        </div>
-        <button type="button" class="btn btn-danger btn-sm btn-block mb-2">
-          <i class="far fa-edit fa-fw" />
-          寫一篇文章
-        </button>
-      </div>
-      <div style="border-bottom: 1px solid #d9d9d9" class="pb-1 mb-2">
-        <a class="dropdown-item" href="#">
-          <i class="far fa-list-alt fa-fw mr-2" />
-          文章管理
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="far fa-id-card fa-fw mr-2" />
-          作者管理
-        </a>
-      </div>
-      <div style="border-bottom: 1px solid #d9d9d9" class="pb-1 mb-2">
-        <a class="dropdown-item" href="#">
-          <i class="fab fa-fort-awesome fa-fw mr-2" />
-          Join the force
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fab fa-fort-awesome-alt fa-fw mr-2" />
-          Dark side
-        </a>
-      </div>
-      <div>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user-alt fa-fw mr-2" />
-          個人資料
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-book fa-fw mr-2" />
-          聯絡管道
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-cog fa-fw mr-2" />
-          設定
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-power-off fa-fw mr-2" />
-          登出
-        </a>
-      </div>
-    </div>
+    <UserInfo {name} {userinfoActive}/>
   </div>
   <div class="nav-user d-none d-md-block">
-    <a class="nav-user_info js-show-userinfo" href="">
-      <span>Zero</span>
+    <a class="nav-user_info js-show-userinfo" href="" on:click={()=> dispatch('toggleUserinfo')}>
+      <span>{name}</span>
       <img
         src="https://driver.cool3c.com/modify/45b39b65-6bb4-4cea-a86d-a3cc97faebb1-w200.png"
         alt="" />
     </a>
-    <div class="nav-user_info-block">
-      <div
-        class="info-block_information d-flex justify-content-center
-        align-items-center mb-2 d-md-none">
-        <span class="mr-2">Zero</span>
-        <img
-          src="https://driver.cool3c.com/modify/45b39b65-6bb4-4cea-a86d-a3cc97faebb1-w200.png"
-          alt="" />
-      </div>
-      <div class="container">
-        <div class="input-group input-group-sm flex-nowrap mb-2 d-md-none">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="addon-wrapping">
-              <i class="fas fa-search" />
-            </span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="搜尋"
-            aria-label="搜尋"
-            aria-describedby="addon-wrapping" />
-        </div>
-        <button type="button" class="btn btn-danger btn-sm btn-block mb-2">
-          <i class="far fa-edit fa-fw" />
-          寫一篇文章
-        </button>
-      </div>
-      <div style="border-bottom: 1px solid #d9d9d9" class="pb-1 mb-2">
-        <a class="dropdown-item" href="#">
-          <i class="far fa-list-alt fa-fw mr-2" />
-          文章管理
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="far fa-id-card fa-fw mr-2" />
-          作者管理
-        </a>
-      </div>
-      <div style="border-bottom: 1px solid #d9d9d9" class="pb-1 mb-2">
-        <a class="dropdown-item" href="#">
-          <i class="fab fa-fort-awesome fa-fw mr-2" />
-          Join the force
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fab fa-fort-awesome-alt fa-fw mr-2" />
-          Dark side
-        </a>
-      </div>
-      <div>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user-alt fa-fw mr-2" />
-          個人資料
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-book fa-fw mr-2" />
-          聯絡管道
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-cog fa-fw mr-2" />
-          設定
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-power-off fa-fw mr-2" />
-          登出
-        </a>
-      </div>
-    </div>
+    <UserInfo {name} {userinfoActive}/>
   </div>
 </nav>

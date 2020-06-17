@@ -10,9 +10,34 @@
 
   onMount(async () => {
 		await import ('../../node_modules/bootstrap/dist/js/bootstrap.min.js');
+		await import('@fortawesome/fontawesome-free/js/all');
 	});
 
 	export let segment;
+
+
+	// 參數區
+	let name = "Zero";
+
+  let categoryList = [];
+  for (let $i = 1; $i <= 20; $i++) {
+    categoryList.push({
+      id: $i,
+      title: "我是項目" + $i
+    });
+	}
+	
+	let navbarActive = false; 
+	let userinfoActive = false; 
+
+	function toggleNavbar() {
+		navbarActive = !navbarActive;
+	};
+	function toggleUserinfo() {
+		userinfoActive = !userinfoActive;
+	};
+	
+
 </script>
 
 <style lang="scss" global>
@@ -20,9 +45,9 @@
 </style>
 
 <header>
-	<Nav/>
+	<Nav {name} {userinfoActive} on:toggleNavbar={toggleNavbar} on:toggleUserinfo={toggleUserinfo}/>
 </header>
-<SideBar/>
+<SideBar {categoryList} {navbarActive}/>
 <div class="main-section">
 	<main class="mb-3">
 		<slot></slot>

@@ -1,4 +1,15 @@
 <script>
+  import { onMount } from "svelte";
+
+  let SideContainer;
+
+  // 延遲載入 SideContainer
+  onMount(async () => {
+    const module = await import("../components/SideContainer.svelte");
+    SideContainer = module.default;
+  });
+
+  // 參數
   let promoteList = [];
   for (let $i = 1; $i <= 5; $i++) {
     let temp = {
@@ -46,26 +57,15 @@
     });
   }
 
+  // scoll Y
   let y;
-  let h;
-  let height;
-  $: move = scrollHotList(y,h,height)
-
-  function scrollHotList(y,h,height) {
-    console.log('y',y,'h',h,height)
-    console.log('610,2214')
-    if(y > 600) {
-      return (y-600)* (2362 - 1184) / (2214 - 600)
-    }
-  }
-
 </script>
 
 <style lang="scss">
 
 </style>
 
-<svelte:window bind:scrollY={y} bind:outerHeight={h}/>
+<svelte:window bind:scrollY={y} />
 
 <svelte:head>
   <title>Sapper project template</title>
@@ -135,42 +135,7 @@
     </div>
     <!-- {{--			右側列表--}} -->
     <div class="col-12 col-md-4 ">
-      <div class="side-container" style="transform: translateY({move}px)">
-        <div class="search_tags">
-          <h2 class="section-title">
-            <a href="">站內熱搜</a>
-          </h2>
-          <ul>
-            {#each searchList as item}
-              <li>{item.title}</li>
-            {/each}
-          </ul>
-        </div>
-        <div class="hot-list">
-          <h2 class="section-title">
-            <a href="">熱門文章</a>
-          </h2>
-          <ul>
-            {#each hotList as item}
-              <li>
-                <a href="" class="d-flex">
-                  <div>{item.index}</div>
-                  <span
-                    class="block-info d-flex flex-column justify-content-between">
-                    <span class="block-info_column">
-                      <span>{item.column}</span>
-                    </span>
-                    <span class="block-info_title">{item.title}</span>
-                  </span>
-                </a>
-              </li>
-            {/each}
-          </ul>
-          <div class="more">
-            <a href="">下十篇文章</a>
-          </div>
-        </div>
-      </div>
+      <svelte:component this={SideContainer} {searchList} {hotList} {y} />
     </div>
   </div>
 </div>

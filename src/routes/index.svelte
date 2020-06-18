@@ -1,12 +1,12 @@
 <script>
   import { onMount } from "svelte";
-
-  let SideContainer;
+  import SideContainer from '../components/SideContainer.svelte';
+  // let SideContainer;
 
   // 延遲載入 SideContainer
   onMount(async () => {
-    const module = await import("../components/SideContainer.svelte");
-    SideContainer = module.default;
+    // const module = await import("../components/SideContainer.svelte");
+    // SideContainer = module.default;
   });
 
   // 參數

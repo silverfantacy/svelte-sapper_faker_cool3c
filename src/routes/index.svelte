@@ -102,30 +102,42 @@
       <ul class="post-list">
         {#each newsList as item}
           <li class="">
-            <a href="" class="row">
+            <div class="row">
               <div class="image col-12 col-md-4">
-                <img src={item.banner} alt="" />
+                <a href="">
+                  <img src={item.banner} alt="" />
+                </a>
               </div>
-              <div class="block-info col-12 col-md-8 d-flex flex-wrap">
+              <div class="block-info col-12 col-md-8">
                 <div class="block-info_tags">
                   {#each item.tag as tag}
-                    <span class="mr-1">{tag}</span>
+                    <a href="">
+                      <span>{tag}</span>
+                    </a>
                   {/each}
                 </div>
-                <h3 class="block-info_title d-block w-100">{item.title}</h3>
-                <p class="block-info_content">{item.teaser}</p>
+                <div>
+                  <a href="">
+                    <h3 class="block-info_title d-block w-100">{item.title}</h3>
+                    <p class="block-info_content">{item.teaser}</p>
+                  </a>
+                </div>
                 <div class="d-flex mt-auto w-100">
-                  <span class="block-info_author">
+                  <a href="">
+                    <span class="block-info_author">
                     <i class="far fa-user-circle fa-fw" />
-                    {item.author}
-                  </span>
-                  <span class="block-info_last ml-auto">
-                    <i class="far fa-clock fa-fw" />
-                    {item.last}
-                  </span>
+                      {item.author}
+                    </span>
+                  </a>
+                  <a href="" class="ml-auto">
+                    <span class="block-info_last">
+                      <i class="far fa-clock fa-fw" />
+                      {item.last}
+                    </span>
+                  </a>
                 </div>
               </div>
-            </a>
+            </div>
           </li>
         {/each}
       </ul>

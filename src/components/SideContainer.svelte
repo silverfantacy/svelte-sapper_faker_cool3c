@@ -47,7 +47,11 @@
     </h2>
     <ul>
       {#each searchList as item}
-        <li>{item.title}</li>
+        <li>
+          <a href="">
+            {item.title}
+          </a>
+        </li>
       {/each}
     </ul>
   </div>
@@ -58,15 +62,25 @@
     <ul>
       {#each hotList as item}
         <li>
-          <a href="" class="d-flex">
-            <div>{item.index}</div>
-            <span class="block-info d-flex flex-column justify-content-between">
-              <span class="block-info_column">
-                <span>{item.column}</span>
-              </span>
-              <span class="block-info_title">{item.title}</span>
-            </span>
-          </a>
+          <div class="sponsor">
+            <a href="">
+              <span class="">{item.index}</span>
+            </a>
+          </div>
+          <div class="block-info">
+            <div class="block-info_column">
+              <div>
+                <a href="">
+                  {item.column}
+                </a>
+              </div>
+            </div>
+            <div class="block-info_title">
+              <a href="">
+                  {item.title}
+              </a>
+            </div>
+          </div>
         </li>
       {/each}
     </ul>

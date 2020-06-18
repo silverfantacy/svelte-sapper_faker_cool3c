@@ -13,7 +13,7 @@
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white nav w-100">
-  <form class="form-inline my-2 my-lg-0 nav-search_bar d-none d-md-flex">
+  <form class="form-inline my-2 my-md-0 nav-search_bar d-none d-md-flex">
     <i class="fas fa-search fa-sm fa-fw" />
     <input
       class="form-control mr-sm-2"

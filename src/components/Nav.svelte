@@ -24,7 +24,7 @@
       Search
     </button>
   </form>
-  <a class="navbar-brand nav-logo" href="http://cool3c_fake.local/">FAKER</a>
+  <a class="navbar-brand nav-logo" href="/">FAKER</a>
   <button
     class="navbar-toggler navbar-toggler-siderbar d-md-none js-show-navbar"
     type="button"
@@ -47,14 +47,14 @@
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      on:click={()=> dispatch('toggleUserinfo')}
+      on:click|preventDefault={()=> dispatch('toggleUserinfo')}
       >
       <i class="fas fa-ellipsis-h fa-fw" />
     </button>
     <UserInfo {name} {userinfoActive}/>
   </div>
   <div class="nav-user d-none d-md-block">
-    <a class="nav-user_info js-show-userinfo" href="" on:click={()=> dispatch('toggleUserinfo')}>
+    <a class="nav-user_info js-show-userinfo" href="/" on:click|preventDefault={()=> dispatch('toggleUserinfo')}>
       <span>{name}</span>
       <img
         src="https://driver.cool3c.com/modify/45b39b65-6bb4-4cea-a86d-a3cc97faebb1-w200.png"

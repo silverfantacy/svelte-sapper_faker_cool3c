@@ -1,3 +1,7 @@
+body {
+  font-family: "Microsoft JhengHei", "\9ED1\9AD4", "\860B\679C\5137\4E2D\9ED1", "MingLiU", sans-serif;
+}
+
 .main-section {
   padding: 50px 0 0 0;
   min-height: 100vh;
@@ -8,7 +12,7 @@
 }
 
 main {
-  min-height: calc( 100vh - 50px - 121px - 16px);
+  min-height: calc(100vh - 50px - 121px - 16px);
 }
 
 // 區域標題

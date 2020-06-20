@@ -13,7 +13,9 @@
 		await import('@fortawesome/fontawesome-free/js/all');
 	});
 
+	// Layout 可以接收一个名为 segment 的参数
 	export let segment;
+	console.log('segment',segment)
 
 
 	// 參數區
